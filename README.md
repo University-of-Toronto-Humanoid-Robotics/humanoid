@@ -5,6 +5,7 @@ Clone this repo (all our code lives here), then set up for your OS. New here? Th
 ## Windows / macOS
 
 1. Install and start [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+   - In the Docker Desktop app open Settings -> Resources -> WSL Integration -> Click the toggle button that says "Ubuntu 24.04"
 2. Start the container, either:
    - **VS Code:** with the **Dev Containers** extension, open the repo folder → **Reopen in Container** → pick your OS.
    - **Terminal**, from the repo folder (`<os>` is `windows` or `mac`):
