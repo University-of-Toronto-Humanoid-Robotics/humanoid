@@ -1,0 +1,15 @@
+services:
+  dev:
+    build: .
+    image: humanoid-dev
+    volumes:
+      - .:/workspaces/humanoid
+      - /run/desktop/mnt/host/wslg/.X11-unix:/tmp/.X11-unix
+      - /run/desktop/mnt/host/wslg:/mnt/wslg
+    environment:
+      DISPLAY: ":0"
+      WAYLAND_DISPLAY: wayland-0
+      XDG_RUNTIME_DIR: /mnt/wslg/runtime-dir
+    working_dir: /workspaces/humanoid
+    stdin_open: true
+    tty: true

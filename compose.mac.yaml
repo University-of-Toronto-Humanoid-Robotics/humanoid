@@ -1,0 +1,29 @@
+services:
+  dev:
+    build: .
+    image: humanoid-dev
+    volumes:
+      - .:/workspaces/humanoid
+      - x11:/tmp/.X11-unix
+    environment:
+      DISPLAY: ":0"
+    working_dir: /workspaces/humanoid
+    stdin_open: true
+    tty: true
+
+  # Virtual screen for GUI apps, viewed in the browser at http://localhost:8080/vnc.html
+  display:
+    build:
+      dockerfile_inline: |
+        FROM ubuntu:24.04
+        RUN apt-get update && apt-get install -y xvfb fluxbox x11vnc novnc && rm -rf /var/lib/apt/lists/*
+    volumes:
+      - x11:/tmp/.X11-unix
+    ports:
+      - "8080:8080"
+    environment:
+      DISPLAY: ":0"
+    command: sh -c "Xvfb :0 -screen 0 1920x1080x24 -ac -extension MIT-SHM & sleep 1; fluxbox & x11vnc -forever -shared -nopw -noshm -quiet & websockify --web /usr/share/novnc 8080 localhost:5900"
+
+volumes:
+  x11:

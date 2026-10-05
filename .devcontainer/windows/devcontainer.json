@@ -1,0 +1,6 @@
+{
+  "name": "humanoid (Windows)",
+  "dockerComposeFile": "../../compose.windows.yaml",
+  "service": "dev",
+  "workspaceFolder": "/workspaces/humanoid"
+}
