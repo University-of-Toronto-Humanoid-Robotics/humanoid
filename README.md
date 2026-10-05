@@ -1,6 +1,6 @@
 # humanoid
 
-Clone this repo (all our code lives here), then set up for your OS.
+Clone this repo (all our code lives here), then set up for your OS. New here? Then do the [onboarding task](onboarding/README.md).
 
 ## Windows / macOS
 
